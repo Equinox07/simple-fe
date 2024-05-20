@@ -1,0 +1,15 @@
+services:
+  web:
+    container_name: webapp
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      # - type: bind
+      #   source: .
+      #   target: /app
+      - .:/app
+      - /app/node_modules
+    # working_dir: /app
+    ports:
+      - 3000:3000

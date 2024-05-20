@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+
+before_install:
+  - docker build -t mavavericks/docker-react-fe -f Dockerfile.dev .
+
+
+script:
+  - docker run mavavericks/docker-react-fe -c npm run test -- --"coverage"
